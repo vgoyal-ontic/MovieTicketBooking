@@ -8,10 +8,9 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-public interface TheatreRepository extends MongoRepository<Theatre,String> {
-//
-//    public List<Theatre> getTheatresInCity(String cityName);
-//    public List<Theatre> getTopRatedTheatresInCity(String cityName);
-//    public List<Movie> getMoviesInTheatre(String theatreId);  //from slots find uniqueMovie Ids corresponding to this theatreId and then and movies from movie Repository
-//    public List<Theatre> topRatedTheatres(String cityName);
+public interface TheatreRepository {
+
+    List<Theatre> getTheatresInCity(String cityName);
+    List<Theatre> getTopRatedTheatresInCity(String cityName);
+
 }

@@ -9,11 +9,12 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 public interface MovieRepository{
-    public List<Movie> findAllMovies();
-    public List<Movie> getAllMoviesOfGenre(Genre genre);
+    List<Movie> findAllMovies();
+    List<Movie> getAllMoviesOfGenre(Genre genre);
 //    public List<Movie> getAllMoviesInCity(String cityName);  //from slotData search if theatre.address.city==cityName
-    public Movie getMovieDetailsFromMovieName(String movieName);
-    public Movie getMovieFromId(List<String> movieId);
+    Movie getMovieDetailsFromMovieName(String movieName);
+
+
 
 
 

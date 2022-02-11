@@ -8,15 +8,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
+import org.springframework.stereotype.Repository;
 
-import java.awt.print.Book;
 import java.util.ArrayList;
 import java.util.List;
 
-public class BookingRepositoryDaoImpl implements BookingRepository {
+@Repository
+public class BookingRepositoryDaoImpl extends CommonRepoImpl implements BookingRepository {
 
     @Autowired
-    MongoTemplate mongoTemplate;
+    private MongoTemplate mongoTemplate;
 
     @Override
     public List<BookingHistory> getAllBookingsInTheatre(String userId, String theatreId)

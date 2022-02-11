@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Repository
-class MovieQueryDaoImpl implements MovieRepository {
+class MovieQueryDaoImpl extends CommonRepoImpl implements MovieRepository {
 
 
     @Autowired
@@ -43,13 +43,4 @@ class MovieQueryDaoImpl implements MovieRepository {
 
     }
 
-    @Override
-    public Movie getMovieFromId(List<String> movieId) {
-        Query query= new Query();
-        query.addCriteria(Criteria.where("id").is(movieId));
-        return (Movie)mongoTemplate.find(query,Movie.class);
-
-
-
-    }
 }

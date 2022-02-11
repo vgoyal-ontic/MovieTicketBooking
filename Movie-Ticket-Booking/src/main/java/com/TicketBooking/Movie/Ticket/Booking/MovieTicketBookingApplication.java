@@ -4,7 +4,7 @@ import com.TicketBooking.Movie.Ticket.Booking.Models.Movie;
 import com.TicketBooking.Movie.Ticket.Booking.Models.User;
 import com.TicketBooking.Movie.Ticket.Booking.repository.MovieRepository;
 import com.TicketBooking.Movie.Ticket.Booking.repository.UserRepository;
-import com.mongodb.MongoClient;
+
 import com.mongodb.MongoClientURI;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
@@ -20,10 +20,6 @@ import org.springframework.data.mongodb.repository.config.EnableMongoRepositorie
 @SpringBootApplication
 @EnableMongoRepositories
 public class MovieTicketBookingApplication  {
-    @Autowired
-    UserRepository userRepository;
-    @Autowired
-    MovieRepository movieRepository;
 
 
     public static void main(String[] args) {

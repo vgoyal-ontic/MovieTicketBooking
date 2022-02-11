@@ -16,11 +16,4 @@ public interface BookingRepository {
     List<BookingHistory> getAllBookingsOfUser(String userId);
     List<BookingHistory> getAllBookingsInTheatre(String userId,String theatreId);
 
-
-
-
-
-
-
-
 }

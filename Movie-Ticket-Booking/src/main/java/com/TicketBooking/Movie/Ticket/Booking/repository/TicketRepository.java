@@ -7,8 +7,8 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 @Component
-public interface TicketRepository extends MongoRepository<Ticket,String> {
+public interface TicketRepository {
 
-//    public List<Ticket> getTicketsFromIds(List<String> ticketIds);
+    List<Ticket> getTicketsFromIds(List<String> ticketIds);
 
 }

@@ -4,35 +4,7 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6bbc77f9-e818-4331-b2a8-57d7a9833d85" name="Changes" comment="l">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/TicketBooking/Movie/Ticket/Booking/Models/Admin.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/TicketBooking/Movie/Ticket/Booking/Models/TheatreOwner.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/TicketBooking/Movie/Ticket/Booking/enums/Certificate.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/TicketBooking/Movie/Ticket/Booking/enums/Genre.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/TicketBooking/Movie/Ticket/Booking/enums/Language.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/TicketBooking/Movie/Ticket/Booking/enums/SeatType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/TicketBooking/Movie/Ticket/Booking/enums/TheatreChain.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/TicketBooking/Movie/Ticket/Booking/enums/TheatreType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/TicketBooking/Movie/Ticket/Booking/repository/impl/BookingRepositoryDaoImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/TicketBooking/Movie/Ticket/Booking/repository/impl/MovieQueryDaoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/TicketBooking/Movie/Ticket/Booking/Models/Address.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/TicketBooking/Movie/Ticket/Booking/Models/Address.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/TicketBooking/Movie/Ticket/Booking/Models/BookingHistory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/TicketBooking/Movie/Ticket/Booking/Models/BookingHistory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/TicketBooking/Movie/Ticket/Booking/Models/Movie.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/TicketBooking/Movie/Ticket/Booking/Models/Movie.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/TicketBooking/Movie/Ticket/Booking/Models/Slot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/TicketBooking/Movie/Ticket/Booking/Models/Slot.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/TicketBooking/Movie/Ticket/Booking/Models/Theatre.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/TicketBooking/Movie/Ticket/Booking/Models/Theatre.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/TicketBooking/Movie/Ticket/Booking/Models/Ticket.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/TicketBooking/Movie/Ticket/Booking/Models/Ticket.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/TicketBooking/Movie/Ticket/Booking/Models/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/TicketBooking/Movie/Ticket/Booking/Models/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/TicketBooking/Movie/Ticket/Booking/MovieTicketBookingApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/TicketBooking/Movie/Ticket/Booking/MovieTicketBookingApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/TicketBooking/Movie/Ticket/Booking/repository/BookingRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/TicketBooking/Movie/Ticket/Booking/repository/BookingRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/TicketBooking/Movie/Ticket/Booking/repository/MovieRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/TicketBooking/Movie/Ticket/Booking/repository/MovieRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/TicketBooking/Movie/Ticket/Booking/repository/SlotRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/TicketBooking/Movie/Ticket/Booking/repository/SlotRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/TicketBooking/Movie/Ticket/Booking/repository/TheatreRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/TicketBooking/Movie/Ticket/Booking/repository/TheatreRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/TicketBooking/Movie/Ticket/Booking/repository/TicketRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/TicketBooking/Movie/Ticket/Booking/repository/TicketRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/TicketBooking/Movie/Ticket/Booking/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/TicketBooking/Movie/Ticket/Booking/repository/UserRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-    </list>
+    <list default="true" id="6bbc77f9-e818-4331-b2a8-57d7a9833d85" name="Changes" comment="l" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -47,8 +19,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Enum" />
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -79,7 +51,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="com.intellij.openapi.externalSystem.service.settings.ExternalSystemGroupConfigurable" value="ALL" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="build.tools" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
   </component>
   <component name="RunManager">
     <configuration name="MovieTicketBookingApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -126,11 +98,6 @@
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/TicketBooking/Movie/Ticket/Booking/repository/TheatreRepository.java</url>
-          <line>16</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.mongodb/mongo-java-driver/3.12.7/61f586a5ad690e61260a85541a7c6956be05e6e6/mongo-java-driver-3.12.7-sources.jar!/com/mongodb/MongoClient.java</url>
           <line>170</line>
