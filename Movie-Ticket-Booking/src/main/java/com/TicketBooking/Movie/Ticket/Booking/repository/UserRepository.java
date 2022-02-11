@@ -10,8 +10,8 @@ import java.util.List;
 
 public interface UserRepository {
 
-    List<Ticket> getTicketHistory(String userId);
-
+//    List<Ticket> getTicketHistory(String userId);
+//
 
 
 

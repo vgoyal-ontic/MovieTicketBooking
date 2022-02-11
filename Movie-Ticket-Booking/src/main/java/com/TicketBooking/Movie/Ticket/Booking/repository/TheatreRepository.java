@@ -10,7 +10,7 @@ import java.util.List;
 
 public interface TheatreRepository {
 
-    List<Theatre> getTheatresInCity(String cityName);
-    List<Theatre> getTopRatedTheatresInCity(String cityName);
+//    List<Theatre> getTheatresInCity(String cityName);
+//    List<Theatre> getTopRatedTheatresInCity(String cityName);
 
 }
