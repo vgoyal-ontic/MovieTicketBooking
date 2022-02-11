@@ -9,6 +9,6 @@ import java.util.List;
 @Component
 public interface TicketRepository {
 
-    List<Ticket> getTicketsFromIds(List<String> ticketIds);
+//    List<Ticket> getTicketsFromIds(List<String> ticketIds);
 
 }

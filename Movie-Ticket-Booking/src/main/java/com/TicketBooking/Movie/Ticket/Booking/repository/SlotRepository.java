@@ -9,13 +9,13 @@ import java.util.List;
 
 public interface SlotRepository {
     //
-    Slot getAvailableTickets(String slotId);
-
-    List<Slot> getAllSlotsOfMovieInCity(String cityName, String movieId);
-
-    List<Slot> getAvailableSlotsOfMovieInCity(String cityName, String movieId); //checkAvailable tickets>0
-
-    List<Slot> getAllSlotsOfMovieInTheatre(String theatreId, String movieId);
+//    Slot getAvailableTickets(String slotId);
+//
+//    List<Slot> getAllSlotsOfMovieInCity(String cityName, String movieId);
+//
+//    List<Slot> getAvailableSlotsOfMovieInCity(String cityName, String movieId); //checkAvailable tickets>0
+//
+//    List<Slot> getAllSlotsOfMovieInTheatre(String theatreId, String movieId);
 
 
 }
