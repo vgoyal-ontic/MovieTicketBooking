@@ -39,4 +39,30 @@ public class TheatreRepositoryDaoImpl implements TheatreRepository, CommonRepo<T
     public List<Theatre> findAll() {
         return  mongoTemplate.findAll(Theatre.class);
     }
+
+    @Override
+    public List<Theatre> getTheatresInCity(String city) {
+        Query query= new Query();
+        query.addCriteria(Criteria.where("city").is(city));
+        return mongoTemplate.find(query,Theatre.class);
+    }
+
+    @Override
+    public List<Theatre> getTheatreOfChain(String theatreType) {
+
+        Query query= new Query();
+        query.addCriteria(Criteria.where("theatreType").is(theatreType));
+        return mongoTemplate.find(query,Theatre.class);
+
+    }
+    @Override
+    public List<Theatre> getTheatreOfCityAndChain(String theatreType,String city){
+        Query query= new Query();
+        query.addCriteria(Criteria.where("theatreType").is(theatreType));
+        query.addCriteria(Criteria.where("city").is(city));
+        return mongoTemplate.find(query,Theatre.class);
+
+
+
+    }
 }

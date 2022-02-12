@@ -29,7 +29,7 @@ public class BookingRepositoryDaoImpl implements BookingRepository, CommonRepo<B
 
     @Override
     public BookingHistory findById(String id) {
-        return mongoTemplate.findById(id,BookingHistory.class);
+        return  mongoTemplate.findById(id,BookingHistory.class);
     }
 
     @Override
@@ -44,6 +44,14 @@ public class BookingRepositoryDaoImpl implements BookingRepository, CommonRepo<B
     @Override
     public List<BookingHistory> findAll() {
         return mongoTemplate.findAll(BookingHistory.class);
+    }
+
+    @Override
+    public List<BookingHistory> getHistoryOfUser(String userId){
+        Query query = new Query();
+        query.addCriteria(Criteria.where("userId").is(userId));
+        return  mongoTemplate.find(query,BookingHistory.class);
+
     }
 
 

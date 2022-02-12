@@ -45,6 +45,10 @@ public class UserRepositoryDaoImpl implements UserRepository, CommonRepo<User> {
     public List<User> findAll() {
         return mongoTemplate.findAll(User.class);
     }
+
+
+
+
 //
 //
 //    @Override

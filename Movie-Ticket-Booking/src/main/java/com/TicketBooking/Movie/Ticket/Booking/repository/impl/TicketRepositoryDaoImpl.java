@@ -8,9 +8,10 @@ import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Repository;
-
-import javax.imageio.stream.ImageOutputStreamImpl;
 import java.util.List;
+
+
+
 @Repository
 public class TicketRepositoryDaoImpl implements TicketRepository, CommonRepo<Ticket> {
     @Autowired
