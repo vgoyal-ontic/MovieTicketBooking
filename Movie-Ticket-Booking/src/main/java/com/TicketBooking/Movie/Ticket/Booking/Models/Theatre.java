@@ -3,11 +3,12 @@ import com.TicketBooking.Movie.Ticket.Booking.enums.TheatreChain;
 import com.TicketBooking.Movie.Ticket.Booking.enums.TheatreType;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
 
 import java.util.List;
-
+@Getter
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -22,6 +23,9 @@ public class Theatre {
     private TheatreChain theatreChain;
     private List<Slot> slots;
     private String city;
+    private List<String> movieIds;
+
+
 
 
 

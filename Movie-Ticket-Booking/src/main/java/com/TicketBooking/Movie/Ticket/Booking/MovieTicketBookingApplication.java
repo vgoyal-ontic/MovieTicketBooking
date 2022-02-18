@@ -7,14 +7,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+
 import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
 
 @SpringBootApplication
 @EnableMongoRepositories
 public class MovieTicketBookingApplication implements  CommandLineRunner  {
 
-    @Autowired
-    UserRepositoryDaoImpl userRepositoryDao;
 
     public static void main(String[] args) {
 
@@ -23,9 +22,10 @@ public class MovieTicketBookingApplication implements  CommandLineRunner  {
 
 
 
-        MongoClientURI uri = new MongoClientURI("mongodb://127.0.0.1:27017");
-        MongoClient mongo = new MongoClient(uri);
-        MongoDatabase bookMyShow= mongo.getDatabase("BookMyShow");
+//
+
+
+
 
 
 
@@ -34,12 +34,6 @@ public class MovieTicketBookingApplication implements  CommandLineRunner  {
     @Override
     public void run(String... args) throws Exception {
 
-//        userRepositoryDao.save(new User("Goyal"));
-//
-//        for(User user: userRepositoryDao.findAll(User.class)){
-//            System.out.println(user);
-//
-//        }
 
     }
 

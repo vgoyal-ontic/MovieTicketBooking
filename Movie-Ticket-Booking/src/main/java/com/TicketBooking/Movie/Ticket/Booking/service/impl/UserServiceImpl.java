@@ -5,9 +5,11 @@ import com.TicketBooking.Movie.Ticket.Booking.Models.User;
 import com.TicketBooking.Movie.Ticket.Booking.repository.impl.UserRepositoryDaoImpl;
 import com.TicketBooking.Movie.Ticket.Booking.service.CrudService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class UserServiceImpl implements CrudService<User> {
     @Autowired
     private UserRepositoryDaoImpl userRepositoryDao;

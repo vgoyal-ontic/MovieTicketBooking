@@ -5,9 +5,13 @@ import com.TicketBooking.Movie.Ticket.Booking.Models.Theatre;
 import com.TicketBooking.Movie.Ticket.Booking.repository.impl.TheatreRepositoryDaoImpl;
 import com.TicketBooking.Movie.Ticket.Booking.service.CrudService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.mongodb.core.query.Criteria;
+import org.springframework.data.mongodb.core.query.Query;
+import org.springframework.stereotype.Service;
+
 
 import java.util.List;
-
+@Service
 public class TheatreServiceImpl implements CrudService<Theatre> {
     @Autowired
     private TheatreRepositoryDaoImpl theatreRepositoryDao;
@@ -33,4 +37,27 @@ public class TheatreServiceImpl implements CrudService<Theatre> {
         theatreRepositoryDao.save(ob);
 
     }
+    public List<Theatre> getTheatresInCity(String city) {
+
+        return theatreRepositoryDao.getTheatresInCity(city);
+
+    }
+
+
+    public List<Theatre> getTheatreOfChain(String theatreType) {
+
+        return theatreRepositoryDao.getTheatreOfChain(theatreType);
+    }
+
+    public List<Theatre> getTheatreOfCityAndChain(String theatreType,String city){
+        return theatreRepositoryDao.getTheatreOfCityAndChain(theatreType,city);
+
+
+    }
+//    public List<Movie> getAllMovies(String theatreId){
+//        return theatreRepositoryDao.getAllMovies(theatreId);
+//
+//    }
+
+
 }

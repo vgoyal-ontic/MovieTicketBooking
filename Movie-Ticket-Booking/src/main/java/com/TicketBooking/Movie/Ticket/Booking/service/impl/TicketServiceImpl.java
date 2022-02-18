@@ -3,9 +3,10 @@ package com.TicketBooking.Movie.Ticket.Booking.service.impl;
 import com.TicketBooking.Movie.Ticket.Booking.Models.Ticket;
 import com.TicketBooking.Movie.Ticket.Booking.repository.impl.TicketRepositoryDaoImpl;
 import com.TicketBooking.Movie.Ticket.Booking.service.CrudService;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
-
+@Service
 public class TicketServiceImpl implements CrudService<Ticket> {
     private TicketRepositoryDaoImpl ticketRepositoryDao;
 
