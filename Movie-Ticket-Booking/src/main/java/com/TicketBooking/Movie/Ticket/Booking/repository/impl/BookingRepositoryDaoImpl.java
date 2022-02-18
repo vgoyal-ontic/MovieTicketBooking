@@ -1,8 +1,5 @@
 package com.TicketBooking.Movie.Ticket.Booking.repository.impl;
-
 import com.TicketBooking.Movie.Ticket.Booking.Models.BookingHistory;
-import com.TicketBooking.Movie.Ticket.Booking.Models.Ticket;
-import com.TicketBooking.Movie.Ticket.Booking.Models.User;
 import com.TicketBooking.Movie.Ticket.Booking.repository.BookingRepository;
 import com.TicketBooking.Movie.Ticket.Booking.repository.CommonRepo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +8,6 @@ import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Repository;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Repository
@@ -19,6 +15,12 @@ public class BookingRepositoryDaoImpl implements BookingRepository, CommonRepo<B
 
     @Autowired
     private MongoTemplate mongoTemplate;
+//
+//    public BookingRepositoryDaoImpl(){
+//        this.mongoTemplate= new MongoTemplate((MongoClient) MongoConfig.mongo,"BookMyShow");
+//
+//    }
+
 
     @Override
     public void save(BookingHistory object) {
@@ -46,15 +48,12 @@ public class BookingRepositoryDaoImpl implements BookingRepository, CommonRepo<B
         return mongoTemplate.findAll(BookingHistory.class);
     }
 
-    @Override
-    public List<BookingHistory> getHistoryOfUser(String userId){
+
+    public List<BookingHistory> getUserHistory(String userId){
         Query query = new Query();
         query.addCriteria(Criteria.where("userId").is(userId));
         return  mongoTemplate.find(query,BookingHistory.class);
-
     }
-
-
     //    @Override
 //    public List<BookingHistory> getAllBookingsInTheatre(String userId, String theatreId)
 //    {

@@ -8,9 +8,10 @@ import com.TicketBooking.Movie.Ticket.Booking.service.CrudService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
-
+@Service
 public class MovieServiceImpl implements CrudService<Movie> {
 
     @Autowired

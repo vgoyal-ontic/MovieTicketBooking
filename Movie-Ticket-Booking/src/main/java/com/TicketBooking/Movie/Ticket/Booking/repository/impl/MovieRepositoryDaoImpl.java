@@ -2,10 +2,12 @@ package com.TicketBooking.Movie.Ticket.Booking.repository.impl;
 
 
 import com.TicketBooking.Movie.Ticket.Booking.Models.Movie;
+import com.TicketBooking.Movie.Ticket.Booking.config.MongoConfig;
 import com.TicketBooking.Movie.Ticket.Booking.enums.Genre;
 import com.TicketBooking.Movie.Ticket.Booking.enums.Language;
 import com.TicketBooking.Movie.Ticket.Booking.repository.CommonRepo;
 import com.TicketBooking.Movie.Ticket.Booking.repository.MovieRepository;
+import com.mongodb.client.MongoClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
@@ -15,13 +17,15 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public
-class MovieRepositoryDaoImpl implements MovieRepository, CommonRepo<Movie> {
-
-
+public class MovieRepositoryDaoImpl implements MovieRepository, CommonRepo<Movie> {
     @Autowired
     private MongoTemplate mongoTemplate;
-
+////
+////    public MovieRepositoryDaoImpl(){
+////
+////        this.mongoTemplate= new MongoTemplate((MongoClient) MongoConfig.mongo,"BookMyShow");
+////
+//    }
     @Override
     public void save(Movie object) {
         mongoTemplate.save(object);

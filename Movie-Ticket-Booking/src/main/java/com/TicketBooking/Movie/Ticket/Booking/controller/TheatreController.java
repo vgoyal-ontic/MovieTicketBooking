@@ -1,5 +1,6 @@
 package com.TicketBooking.Movie.Ticket.Booking.controller;
 
+import com.TicketBooking.Movie.Ticket.Booking.Models.Movie;
 import com.TicketBooking.Movie.Ticket.Booking.Models.Theatre;
 import com.TicketBooking.Movie.Ticket.Booking.service.impl.TheatreServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,11 +11,11 @@ import java.util.List;
 
 
 @RequestMapping("/theatres")
-@Controller
+@RestController
 public class TheatreController implements CrudController<Theatre> {
 
     @Autowired
-    private TheatreServiceImpl theatreService;
+    TheatreServiceImpl theatreService;
 
     @Override
     @GetMapping
@@ -55,8 +56,10 @@ public class TheatreController implements CrudController<Theatre> {
     @GetMapping("/{theatreType}/{city}")
     public List<Theatre> getTheatreOfCityAndChain(String theatreType,String city){
         return theatreService.getTheatreOfCityAndChain(theatreType,city);
-
-
-
     }
+//    @GetMapping("/{theatreId}/movies")
+//    public List<Movie> getAllMovies(String theatreId){
+//        return  theatreService.getAllMovies(theatreId);
+//
+//    }
 }

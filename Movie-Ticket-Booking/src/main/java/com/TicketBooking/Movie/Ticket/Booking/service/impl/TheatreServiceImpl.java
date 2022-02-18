@@ -7,9 +7,11 @@ import com.TicketBooking.Movie.Ticket.Booking.service.CrudService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
+import org.springframework.stereotype.Service;
+
 
 import java.util.List;
-
+@Service
 public class TheatreServiceImpl implements CrudService<Theatre> {
     @Autowired
     private TheatreRepositoryDaoImpl theatreRepositoryDao;
@@ -52,6 +54,10 @@ public class TheatreServiceImpl implements CrudService<Theatre> {
 
 
     }
+//    public List<Movie> getAllMovies(String theatreId){
+//        return theatreRepositoryDao.getAllMovies(theatreId);
+//
+//    }
 
 
 }

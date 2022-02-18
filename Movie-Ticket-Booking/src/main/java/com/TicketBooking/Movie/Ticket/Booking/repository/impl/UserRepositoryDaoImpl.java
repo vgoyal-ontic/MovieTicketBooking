@@ -2,8 +2,10 @@ package com.TicketBooking.Movie.Ticket.Booking.repository.impl;
 
 import com.TicketBooking.Movie.Ticket.Booking.Models.Ticket;
 import com.TicketBooking.Movie.Ticket.Booking.Models.User;
+import com.TicketBooking.Movie.Ticket.Booking.config.MongoConfig;
 import com.TicketBooking.Movie.Ticket.Booking.repository.CommonRepo;
 import com.TicketBooking.Movie.Ticket.Booking.repository.UserRepository;
+import com.mongodb.client.MongoClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
@@ -11,25 +13,30 @@ import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+
 @Repository
 public class UserRepositoryDaoImpl implements UserRepository, CommonRepo<User> {
 
-
     @Autowired
     private MongoTemplate mongoTemplate;
+//    public UserRepositoryDaoImpl(){
+//        this.mongoTemplate=new MongoTemplate((MongoClient) MongoConfig.mongo,"BookMyShow");
+//
+//    }
+
 
 //
 //
 
     @Override
-    public void save(User object) {
-        mongoTemplate.save(object);
-
-
+    public void save(User object)
+    {
+        mongoTemplate.insert(object);
     }
 
     @Override
     public User findById(String id) {
+
         return mongoTemplate.findById(id,User.class);
     }
 

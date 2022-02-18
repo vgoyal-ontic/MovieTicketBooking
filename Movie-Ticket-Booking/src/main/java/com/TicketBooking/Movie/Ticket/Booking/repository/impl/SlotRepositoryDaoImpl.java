@@ -2,8 +2,10 @@ package com.TicketBooking.Movie.Ticket.Booking.repository.impl;
 
 import com.TicketBooking.Movie.Ticket.Booking.Models.Slot;
 
+import com.TicketBooking.Movie.Ticket.Booking.config.MongoConfig;
 import com.TicketBooking.Movie.Ticket.Booking.repository.CommonRepo;
 import com.TicketBooking.Movie.Ticket.Booking.repository.SlotRepository;
+import com.mongodb.client.MongoClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
@@ -17,8 +19,14 @@ public class SlotRepositoryDaoImpl  implements SlotRepository, CommonRepo<Slot> 
 
 
     @Autowired
-    MongoTemplate mongoTemplate;
+    private MongoTemplate mongoTemplate;
 
+
+//    public SlotRepositoryDaoImpl(){
+//
+//        this.mongoTemplate= new MongoTemplate((MongoClient) MongoConfig.mongo,"BookMyShow");
+//
+//    }
     @Override
     public void save(Slot object) {
         mongoTemplate.save(object);

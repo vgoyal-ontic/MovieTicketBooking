@@ -13,7 +13,7 @@ import java.util.List;
 
 public interface BookingRepository {
 
-    List<BookingHistory> getHistoryOfUser(String userId);
+    List<BookingHistory> getUserHistory(String userId);
 //    List<BookingHistory> getAllBookingsInTheatre(String userId,String theatreId);
 
 }
