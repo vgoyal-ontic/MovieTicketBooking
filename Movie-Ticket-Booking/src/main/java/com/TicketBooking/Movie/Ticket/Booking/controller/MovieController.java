@@ -1,15 +1,14 @@
 package com.TicketBooking.Movie.Ticket.Booking.controller;
-
 import com.TicketBooking.Movie.Ticket.Booking.Models.Movie;
-import com.TicketBooking.Movie.Ticket.Booking.enums.Genre;
-import com.TicketBooking.Movie.Ticket.Booking.enums.Language;
 import com.TicketBooking.Movie.Ticket.Booking.service.impl.MovieServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
-@RestController
+
+
+
 @RequestMapping("/movies")
+@RestController
 public class MovieController implements CrudController<Movie>{
 
     @Autowired
@@ -18,20 +17,20 @@ public class MovieController implements CrudController<Movie>{
     @GetMapping
     @Override
     public List<Movie> findAll() {
-        return null;
+        return movieService.findAll();
     }
 
 
-    @GetMapping("/{id}")
+    @GetMapping("/id/{id}")
     @Override
-    public Movie findById(String id) {
+    public Movie findById(@PathVariable String id) {
         return movieService.findById(id);
     }
 
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/id/{id}")
     @Override
-    public void deleteById(String id) {
+    public void deleteById(@PathVariable String id) {
         movieService.deleteById(id);
 
     }
@@ -42,26 +41,27 @@ public class MovieController implements CrudController<Movie>{
         movieService.save(ob);
 
     }
-    @GetMapping("/{genre}")
-    public List<Movie> getMovieOfGenre(Genre genre) {
+    @GetMapping("/genre/{genre}")
+    public List<Movie> getMovieOfGenre(@PathVariable String genre) {
+
 
         return movieService.getMovieOfGenre(genre);
     }
 
-    @GetMapping("/{rating}")
-    public List<Movie> getMoviesAboveRating(float rating) {
+    @GetMapping("/rating/{rating}")
+    public List<Movie> getMoviesAboveRating(@PathVariable String rating) {
 
         return movieService.getMoviesAboveRating(rating);
     }
 
-    @GetMapping("/{language}")
-    public List<Movie> getMovieOfLanguage(Language language) {
+    @GetMapping("/language/{language}")
+    public List<Movie> getMovieOfLanguage(@PathVariable String language) {
         return movieService.getMovieOfLanguage(language);
 
     }
 
-    @GetMapping("/{name}")
-    public Movie getMovieByName(String name) {
+    @GetMapping("/name/{name}")
+    public Movie getMovieByName(@PathVariable String name) {
 
         return movieService.getMovieByName(name);
 

@@ -2,8 +2,11 @@ package com.TicketBooking.Movie.Ticket.Booking.service.impl;
 
 import com.TicketBooking.Movie.Ticket.Booking.Models.Movie;
 import com.TicketBooking.Movie.Ticket.Booking.Models.Theatre;
+import com.TicketBooking.Movie.Ticket.Booking.enums.TheatreChain;
+import com.TicketBooking.Movie.Ticket.Booking.enums.TheatreType;
 import com.TicketBooking.Movie.Ticket.Booking.repository.impl.TheatreRepositoryDaoImpl;
 import com.TicketBooking.Movie.Ticket.Booking.service.CrudService;
+import org.springframework.beans.CachedIntrospectionResults;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
@@ -15,6 +18,7 @@ import java.util.List;
 public class TheatreServiceImpl implements CrudService<Theatre> {
     @Autowired
     private TheatreRepositoryDaoImpl theatreRepositoryDao;
+
 
     @Override
     public List<Theatre> findAll() {
@@ -38,22 +42,30 @@ public class TheatreServiceImpl implements CrudService<Theatre> {
 
     }
     public List<Theatre> getTheatresInCity(String city) {
-
-        return theatreRepositoryDao.getTheatresInCity(city);
+        city=city.toLowerCase();
+        return theatreRepositoryDao.getTheatresInCity(city.toLowerCase());
 
     }
 
 
-    public List<Theatre> getTheatreOfChain(String theatreType) {
-
-        return theatreRepositoryDao.getTheatreOfChain(theatreType);
+    public List<Theatre> getTheatreType(String theatreType) {
+        theatreType=theatreType.toUpperCase();
+        return theatreRepositoryDao.getTheatreType(TheatreType.valueOf(theatreType));
     }
 
     public List<Theatre> getTheatreOfCityAndChain(String theatreType,String city){
-        return theatreRepositoryDao.getTheatreOfCityAndChain(theatreType,city);
 
+        return theatreRepositoryDao.getTheatreOfCityAndChain(TheatreType.valueOf(theatreType),city.toLowerCase());
 
     }
+
+    public List<Theatre> getTheatresOfChain(String theatreChain){
+        TheatreChain chain =TheatreChain.valueOf(theatreChain.toUpperCase());
+        return theatreRepositoryDao.getTheatresOfChain(chain);
+    }
+
+
+
 //    public List<Movie> getAllMovies(String theatreId){
 //        return theatreRepositoryDao.getAllMovies(theatreId);
 //

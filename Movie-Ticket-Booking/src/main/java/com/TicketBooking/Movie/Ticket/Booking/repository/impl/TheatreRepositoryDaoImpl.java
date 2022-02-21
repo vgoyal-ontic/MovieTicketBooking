@@ -1,5 +1,7 @@
 package com.TicketBooking.Movie.Ticket.Booking.repository.impl;
 import com.TicketBooking.Movie.Ticket.Booking.Models.Theatre;
+import com.TicketBooking.Movie.Ticket.Booking.enums.TheatreChain;
+import com.TicketBooking.Movie.Ticket.Booking.enums.TheatreType;
 import com.TicketBooking.Movie.Ticket.Booking.repository.CommonRepo;
 import com.TicketBooking.Movie.Ticket.Booking.repository.TheatreRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +28,7 @@ public class TheatreRepositoryDaoImpl implements TheatreRepository, CommonRepo<T
 
     @Override
     public Theatre findById(String id) {
+
         return mongoTemplate.findById(id, Theatre.class);
     }
 
@@ -50,7 +53,7 @@ public class TheatreRepositoryDaoImpl implements TheatreRepository, CommonRepo<T
     }
 
     @Override
-    public List<Theatre> getTheatreOfChain(String theatreType) {
+    public List<Theatre> getTheatreType(TheatreType theatreType) {
 
         Query query = new Query();
         query.addCriteria(Criteria.where("theatreType").is(theatreType));
@@ -59,7 +62,7 @@ public class TheatreRepositoryDaoImpl implements TheatreRepository, CommonRepo<T
     }
 
     @Override
-    public List<Theatre> getTheatreOfCityAndChain(String theatreType, String city) {
+    public List<Theatre> getTheatreOfCityAndChain(TheatreType theatreType, String city) {
         Query query = new Query();
         query.addCriteria(Criteria.where("theatreType").is(theatreType));
         query.addCriteria(Criteria.where("city").is(city));
@@ -67,12 +70,18 @@ public class TheatreRepositoryDaoImpl implements TheatreRepository, CommonRepo<T
 
     }
 
-    public List<Theatre> getTheatreOfOwner(String ownerId) {
+    public List<Theatre> getTheatresOfOwner(String ownerId) {
         Query query = new Query();
         query.addCriteria(Criteria.where("ownerId").is(ownerId));
         return mongoTemplate.find(query, Theatre.class);
 
     }
+    public List<Theatre> getTheatresOfChain(TheatreChain chain){
+        Query query= new Query();
+        query.addCriteria(Criteria.where("theatreChain").is(chain));
+        return mongoTemplate.find(query,Theatre.class);
+    }
+
 
 //    public List<Movie> getAllMovies(String theatreId) {
 //

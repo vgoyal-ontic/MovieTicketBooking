@@ -1,10 +1,11 @@
 package com.TicketBooking.Movie.Ticket.Booking.controller;
 
-import com.TicketBooking.Movie.Ticket.Booking.Models.Movie;
+
 import com.TicketBooking.Movie.Ticket.Booking.Models.Theatre;
+import com.TicketBooking.Movie.Ticket.Booking.enums.TheatreType;
 import com.TicketBooking.Movie.Ticket.Booking.service.impl.TheatreServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
+
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -24,42 +25,42 @@ public class TheatreController implements CrudController<Theatre> {
     }
 
     @Override
-    @GetMapping("/{id}")
-    public Theatre findById(String id) {
+    @GetMapping("/id/{id}")
+    public Theatre findById(@PathVariable("id") String id) {
+
         return theatreService.findById(id);
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/id/{id}")
     @Override
-    public void deleteById(String id) {
+    public void deleteById(@PathVariable("id") String id) {
         theatreService.deleteById(id);
-
     }
+
     @PostMapping
     @Override
     public void save(@RequestBody Theatre ob) {
         theatreService.save(ob);
-
     }
-    @GetMapping("/{city}")
-    public List<Theatre> getTheatresInCity(String city){
+
+    @GetMapping("/city/{city}")
+    public List<Theatre> getTheatresInCity(@PathVariable("city") String city){
         return theatreService.getTheatresInCity(city);
-
-
     }
-    @GetMapping("/theatreType")
-    public List<Theatre> getTheatreOfChain(String theatreType) {
 
-        return theatreService.getTheatreOfChain(theatreType);
-
+    @GetMapping("/theatreType/{theatreType}")
+    public List<Theatre> getTheatreOfChain(@PathVariable("theatreType") String theatreType) {
+        return theatreService.getTheatreType(theatreType);
     }
-    @GetMapping("/{theatreType}/{city}")
-    public List<Theatre> getTheatreOfCityAndChain(String theatreType,String city){
+    @GetMapping("/theatreType/{theatreType}/city/{city}")
+    public List<Theatre> getTheatreOfCityAndChain(@PathVariable String theatreType,@PathVariable String city){
         return theatreService.getTheatreOfCityAndChain(theatreType,city);
     }
-//    @GetMapping("/{theatreId}/movies")
-//    public List<Movie> getAllMovies(String theatreId){
-//        return  theatreService.getAllMovies(theatreId);
-//
-//    }
+
+    @GetMapping("/theatreChain/{theatreChain}")
+    public List<Theatre> getTheatresOfChain(@PathVariable String theatreChain){
+        return theatreService.getTheatresOfChain(theatreChain);
+
+    }
+
 }
