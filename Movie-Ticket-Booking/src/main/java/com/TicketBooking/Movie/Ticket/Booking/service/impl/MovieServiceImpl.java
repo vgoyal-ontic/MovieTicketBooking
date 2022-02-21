@@ -11,6 +11,8 @@ import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Locale;
+
 @Service
 public class MovieServiceImpl implements CrudService<Movie> {
 
@@ -40,13 +42,15 @@ public class MovieServiceImpl implements CrudService<Movie> {
     }
 
 
-    public List<Movie> getMovieOfGenre(Genre genre) {
+    public List<Movie> getMovieOfGenre(String genre) {
 
-        return movieQueryDao.getMovieOfGenre(genre);
+        return movieQueryDao.getMovieOfGenre(Genre.valueOf(genre.toUpperCase()));
     }
 
 
-    public List<Movie> getMoviesAboveRating(float rating) {
+    public List<Movie> getMoviesAboveRating(String rating1) {
+
+        Float rating= Float.parseFloat(rating1);
 
         return movieQueryDao.getMoviesAboveRating(rating);
 
@@ -54,14 +58,16 @@ public class MovieServiceImpl implements CrudService<Movie> {
     }
 
 
-    public List<Movie> getMovieOfLanguage(Language language) {
-        return movieQueryDao.getMovieOfLanguage(language);
+    public List<Movie> getMovieOfLanguage(String language) {
+        Language lang= Language.valueOf(language.toUpperCase());
+        return movieQueryDao.getMovieOfLanguage(lang);
 
     }
 
 
     public Movie getMovieByName(String name) {
 
+        name= name.toLowerCase();
         return movieQueryDao.getMovieByName(name);
 
     }

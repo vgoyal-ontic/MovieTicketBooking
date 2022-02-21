@@ -15,20 +15,20 @@ import java.util.Collections;
 
 @Configuration
 public class MongoConfig {
-
-    @Bean
-    public MongoClient mongo() {
-        ConnectionString connectionString = new ConnectionString("mongodb://localhost:27017/BookMyShow");
-        MongoClientSettings mongoClientSettings = MongoClientSettings.builder()
-                .applyConnectionString(connectionString)
-                .build();
-
-        return MongoClients.create(mongoClientSettings);
-    }
-
-    @Bean
-    public MongoTemplate mongoTemplate() throws Exception {
-        return new MongoTemplate(mongo(), "BookMyShow");
-    }
+//
+//    @Bean
+//    public MongoClient mongo() {
+//        ConnectionString connectionString = new ConnectionString("mongodb://localhost:27017/BookMyShow");
+//        MongoClientSettings mongoClientSettings = MongoClientSettings.builder()
+//                .applyConnectionString(connectionString)
+//                .build();
+//
+//        return MongoClients.create(mongoClientSettings);
+//    }
+//
+//    @Bean
+//    public MongoTemplate mongoTemplate() throws Exception {
+//        return new MongoTemplate(mongo(), "BookMyShow");
+//    }
 
 }

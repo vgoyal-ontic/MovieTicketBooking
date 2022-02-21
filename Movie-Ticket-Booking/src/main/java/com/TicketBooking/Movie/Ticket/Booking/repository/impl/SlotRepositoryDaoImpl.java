@@ -3,6 +3,7 @@ package com.TicketBooking.Movie.Ticket.Booking.repository.impl;
 import com.TicketBooking.Movie.Ticket.Booking.Models.Slot;
 
 import com.TicketBooking.Movie.Ticket.Booking.config.MongoConfig;
+import com.TicketBooking.Movie.Ticket.Booking.enums.SeatType;
 import com.TicketBooking.Movie.Ticket.Booking.repository.CommonRepo;
 import com.TicketBooking.Movie.Ticket.Booking.repository.SlotRepository;
 import com.mongodb.client.MongoClient;
@@ -12,6 +13,7 @@ import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Repository;
 import java.util.List;
+import java.util.Map;
 
 @Repository
 public class SlotRepositoryDaoImpl  implements SlotRepository, CommonRepo<Slot> {
@@ -34,7 +36,9 @@ public class SlotRepositoryDaoImpl  implements SlotRepository, CommonRepo<Slot> 
 
     @Override
     public Slot findById(String id) {
-        return mongoTemplate.findById(id,Slot.class);
+        Query query= new Query();
+        query.addCriteria(Criteria.where("id").is(id));
+        return mongoTemplate.findOne(query,Slot.class);
     }
 
     @Override
@@ -42,8 +46,6 @@ public class SlotRepositoryDaoImpl  implements SlotRepository, CommonRepo<Slot> 
         Query query= new Query();
         query.addCriteria(Criteria.where("id").is(id));
         mongoTemplate.findAndRemove(query,Slot.class);
-
-
     }
 
     @Override
@@ -52,64 +54,36 @@ public class SlotRepositoryDaoImpl  implements SlotRepository, CommonRepo<Slot> 
     }
 
 
-//
-//    @Override
-//    public Slot getAvailableTickets(String slotId) {
-//        Query query= new Query();
-//        query.addCriteria(Criteria.where("id").is(slotId));
-//
-//        return (Slot) mongoTemplate.find(query,Slot.class);
-//
-//    }
-//
-//    @Override
-//    public List<Slot> getAllSlotsOfMovieInCity(String cityName, String movieId) {
-//        Query query= new Query();
-//        query.addCriteria(Criteria.where("movieId").is(movieId));
-//        // select city now for theatre
-//
-//        return mongoTemplate.find(query,Slot.class) ;
-//
-//
-//    }
-//
-//    @Override
-//    public List<Slot> getAvailableSlotsOfMovieInCity(String cityName, String movieId) {
-//
-//        return null;
-//
-//    }
-//
-//    @Override
-//    public List<Slot> getAllSlotsOfMovieInTheatre(String theatreId, String movieId) {
-//        Query query= new Query();
-//        query.addCriteria(Criteria.where("movieId").is(movieId));
-//        query.addCriteria(Criteria.where("theatreId").is(theatreId));
-//
-//        // select city now for theatre
-//
-//        return mongoTemplate.find(query,Slot.class) ;
-//
-//    }
-//
-//    @Override
-//    public <T> void save(T object) {
-//        commonRepoImpl.save(object);
-//
-//    }
-//
-//    @Override
-//    public <T> T findById(String id, Class<T> entityClass) {
-//        return commonRepoImpl.findById(id,entityClass);
-//    }
-//
-//    @Override
-//    public <T> void deleteById(String id, Class<T> entityClass) {
-//        commonRepoImpl.deleteById(id,entityClass);
-//    }
-//
-//    @Override
-//    public <T> List<T> findAll(Class<T> entityClass) {
-//        return null;
-//    }
+    @Override
+    public List<Slot> getAllSlotsOfMovieAndTheatre(String theatreId, String movieId){
+
+        Query query = new Query();
+        query.addCriteria(Criteria.where("movieId").is(movieId).and("theatreId").is(movieId));
+
+           return mongoTemplate.find(query,Slot.class);
+    }
+    public Map<SeatType,Integer> getAvailableSeats(String slotId){
+
+        return findById(slotId).getAvailableSeats();
+
+    }
+
+    public String bookTicket(String slotId,SeatType seatType,Integer quantity){
+        Slot slot= findById(slotId);
+
+
+        if(slot.getAvailableSeats().get(seatType )<quantity){
+            return "Tickets Not Available";
+        }else{
+            Map<SeatType,Integer> seats= slot.getAvailableSeats();
+            seats.put(seatType,seats.get(seatType)-quantity);
+            slot.setAvailableSeats(seats);
+            save(slot);
+             return "Tickets Booked";
+        }
+
+
+    }
+
+
 }

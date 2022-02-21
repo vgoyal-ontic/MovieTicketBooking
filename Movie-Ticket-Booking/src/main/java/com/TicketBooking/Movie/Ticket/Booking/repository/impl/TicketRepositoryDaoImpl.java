@@ -1,10 +1,7 @@
 package com.TicketBooking.Movie.Ticket.Booking.repository.impl;
-
 import com.TicketBooking.Movie.Ticket.Booking.Models.Ticket;
-import com.TicketBooking.Movie.Ticket.Booking.config.MongoConfig;
 import com.TicketBooking.Movie.Ticket.Booking.repository.CommonRepo;
 import com.TicketBooking.Movie.Ticket.Booking.repository.TicketRepository;
-import com.mongodb.client.MongoClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
@@ -30,6 +27,8 @@ public class TicketRepositoryDaoImpl implements TicketRepository, CommonRepo<Tic
 
     @Override
     public Ticket findById(String id) {
+        Query query = new Query();
+        query.addCriteria(Criteria.where("id").is(id));
         return mongoTemplate.findById(id,Ticket.class);
     }
 
@@ -45,6 +44,21 @@ public class TicketRepositoryDaoImpl implements TicketRepository, CommonRepo<Tic
     public List<Ticket> findAll() {
         return mongoTemplate.findAll(Ticket.class);
     }
+
+    public List<Ticket> getAllTicketsOfTheatreAndMovie(String movieId,String theatreId){
+        Query query= new Query();
+        query.addCriteria(Criteria.where("movieId").is(movieId).and("theatreId").is(theatreId));
+        return mongoTemplate.find(query,Ticket.class);
+    }
+
+    public List<Ticket> getUserHistory(String userId){
+        Query query= new Query();
+        query.addCriteria(Criteria.where("userId").is(userId));
+        return mongoTemplate.find(query,Ticket.class);
+
+    }
+
+
 
     //
 //    @Override

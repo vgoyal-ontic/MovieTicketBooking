@@ -1,14 +1,14 @@
 package com.TicketBooking.Movie.Ticket.Booking.Models;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.springframework.data.annotation.Id;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
-@Data
+@Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 public class TheatreOwner {
@@ -20,9 +20,50 @@ public class TheatreOwner {
     private String name;
     private String mobileNumber;
     private String emailId;
-    private List<Theatre> theatres= new ArrayList<>();
+    private List<String> theatres= new ArrayList<>();
 
 
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        name=name.toLowerCase();
+        this.name = name;
+    }
+
+    public String getMobileNumber() {
+        return mobileNumber;
+    }
+
+    public void setMobileNumber(String mobileNumber) {
+        this.mobileNumber = mobileNumber;
+    }
+
+    public String getEmailId() {
+        return emailId;
+    }
+
+    public void setEmailId(String emailId) {
+        this.emailId = emailId;
+    }
+
+    public List<String> getTheatres() {
+        return theatres;
+    }
+
+    public void setTheatres(List<String> theatres) {
+        this.theatres = theatres;
+    }
 
 
 }
+

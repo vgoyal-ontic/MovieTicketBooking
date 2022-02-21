@@ -3,6 +3,7 @@ package com.TicketBooking.Movie.Ticket.Booking.repository.impl;
 
 import com.TicketBooking.Movie.Ticket.Booking.Models.Movie;
 import com.TicketBooking.Movie.Ticket.Booking.config.MongoConfig;
+import com.TicketBooking.Movie.Ticket.Booking.enums.Certificate;
 import com.TicketBooking.Movie.Ticket.Booking.enums.Genre;
 import com.TicketBooking.Movie.Ticket.Booking.enums.Language;
 import com.TicketBooking.Movie.Ticket.Booking.repository.CommonRepo;
@@ -85,6 +86,14 @@ public class MovieRepositoryDaoImpl implements MovieRepository, CommonRepo<Movie
         query.addCriteria(Criteria.where("name").is(name));
 
         return mongoTemplate.findOne(query,Movie.class);
+    }
+
+    @Override
+    public List<Movie> getMoviesOfCertificate(Certificate certificate){
+
+        Query query= new Query();
+        query.addCriteria(Criteria.where("certificate").is(certificate));
+        return mongoTemplate.find(query,Movie.class);
     }
 
 

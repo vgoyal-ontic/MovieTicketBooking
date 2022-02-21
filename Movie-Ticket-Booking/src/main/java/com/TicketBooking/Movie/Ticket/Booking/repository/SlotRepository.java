@@ -9,6 +9,8 @@ import java.util.List;
 
 public interface SlotRepository {
     //
+
+    List<Slot> getAllSlotsOfMovieAndTheatre(String theatreId, String movieId);
 //    Slot getAvailableTickets(String slotId);
 //
 //    List<Slot> getAllSlotsOfMovieInCity(String cityName, String movieId);
