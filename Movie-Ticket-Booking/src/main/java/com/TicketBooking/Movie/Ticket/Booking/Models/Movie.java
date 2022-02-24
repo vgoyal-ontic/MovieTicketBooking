@@ -3,12 +3,11 @@ package com.TicketBooking.Movie.Ticket.Booking.Models;
 import com.TicketBooking.Movie.Ticket.Booking.enums.Certificate;
 import com.TicketBooking.Movie.Ticket.Booking.enums.Genre;
 import com.TicketBooking.Movie.Ticket.Booking.enums.Language;
+
 import lombok.*;
-import org.apache.tomcat.jni.Local;
+
 import org.springframework.data.annotation.Id;
 
-import java.time.LocalTime;
-import java.util.Date;
 
 
 
@@ -24,10 +23,32 @@ public class Movie {
     private Genre genre;
     private Language language;
     private Certificate certificate;
-    //private Date releaseDate;
-    private String summary;
+//
+//    @JsonFormat(pattern="dd/MM/yyyy")
+//    private Date releaseDate;
+//    @JsonFormat(pattern="hh:mm:ss")
+//    private LocalTime duration;
 
+    private String summary;
     private float rating;
+//
+//    public Date getReleaseDate() {
+//        return releaseDate;
+//    }
+//
+//    public void setReleaseDate(Date releaseDate) {
+//        this.releaseDate = releaseDate;
+//    }
+//
+//    public LocalTime getDuration() {
+//        return duration;
+//    }
+//
+//    public void setDuration(LocalTime duration) {
+//        this.duration = duration;
+//    }
+//
+
 
     public String getId() {
         return id;

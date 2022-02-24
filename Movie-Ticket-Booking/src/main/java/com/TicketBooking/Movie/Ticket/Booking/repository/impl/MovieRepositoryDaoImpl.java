@@ -9,12 +9,15 @@ import com.TicketBooking.Movie.Ticket.Booking.enums.Language;
 import com.TicketBooking.Movie.Ticket.Booking.repository.CommonRepo;
 import com.TicketBooking.Movie.Ticket.Booking.repository.MovieRepository;
 import com.mongodb.client.MongoClient;
+import org.jetbrains.annotations.NotNull;
+import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Repository;
 
+import java.util.Iterator;
 import java.util.List;
 
 @Repository
@@ -75,6 +78,7 @@ public class MovieRepositoryDaoImpl implements MovieRepository, CommonRepo<Movie
 
         Query query= new Query();
         query.addCriteria(Criteria.where("language").is(language));
+        query.addCriteria(Criteria.where("id").is("1"));
 
         return mongoTemplate.find(query,Movie.class);
 
@@ -94,6 +98,22 @@ public class MovieRepositoryDaoImpl implements MovieRepository, CommonRepo<Movie
         Query query= new Query();
         query.addCriteria(Criteria.where("certificate").is(certificate));
         return mongoTemplate.find(query,Movie.class);
+    }
+
+    public List<Movie> filter(Genre genre,Language language,String id){
+        Query query= new Query();
+        if(genre!=null){
+            query.addCriteria(Criteria.where("genre").is(genre));
+        }
+        if(language!=null){
+            query.addCriteria(Criteria.where("language").is(language));
+        }if(id!=null){
+            query.addCriteria(Criteria.where("id").is(id));
+        }
+
+
+        return mongoTemplate.find(query,Movie.class);
+
     }
 
 
