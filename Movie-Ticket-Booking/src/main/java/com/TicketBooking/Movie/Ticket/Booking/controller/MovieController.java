@@ -1,6 +1,7 @@
 package com.TicketBooking.Movie.Ticket.Booking.controller;
 import com.TicketBooking.Movie.Ticket.Booking.Models.Movie;
 import com.TicketBooking.Movie.Ticket.Booking.service.impl.MovieServiceImpl;
+import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
@@ -65,6 +66,14 @@ public class MovieController implements CrudController<Movie>{
 
         return movieService.getMovieByName(name);
 
+    }
+
+    @GetMapping("/params")
+    public List<Movie> filter(@RequestParam(name = "genre",required = false) String genre,
+                              @RequestParam(name = "language",required = false) String language,
+                              @RequestParam(name="id",required = false) String id){
+
+        return movieService.filter(genre,language,id);
     }
 
 }

@@ -43,8 +43,9 @@ public class SlotController implements CrudController<Slot>{
     public List<Slot> getAllSlotsOfMovieAndTheatre(@PathVariable String theatreId,@PathVariable String movieId) {
 
         return slotService.getAllSlotsOfMovieAndTheatre(theatreId,movieId);
-
     }
+
+
     @GetMapping("{slotId}/availableSeats")
     public String getAvailableSeats(@PathVariable String slotId){
         return  slotService.getAvailableSeats(slotId);

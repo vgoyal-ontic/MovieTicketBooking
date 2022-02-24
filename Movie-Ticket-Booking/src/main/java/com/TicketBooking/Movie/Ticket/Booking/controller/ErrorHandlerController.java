@@ -6,12 +6,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RequestMapping
 @RestController
-public class ErrorHandlerController implements ErrorController {
+public class ErrorHandlerController {
 
-
-    @GetMapping("/error")
-    public String getErrorPath() {
-        return "<center><h1>Something went wrong</h1></center>";
-    }
+//
+//    @GetMapping("/error")
+//    public String getErrorPath() {
+//        return "<center><h1>Something went wrong</h1></center>";
+//    }
 }
 

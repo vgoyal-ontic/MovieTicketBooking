@@ -5,6 +5,8 @@ import com.TicketBooking.Movie.Ticket.Booking.enums.Genre;
 import com.TicketBooking.Movie.Ticket.Booking.enums.Language;
 import com.TicketBooking.Movie.Ticket.Booking.repository.impl.MovieRepositoryDaoImpl;
 import com.TicketBooking.Movie.Ticket.Booking.service.CrudService;
+import com.fasterxml.jackson.databind.util.JSONPObject;
+import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
@@ -69,6 +71,23 @@ public class MovieServiceImpl implements CrudService<Movie> {
 
         name= name.toLowerCase();
         return movieQueryDao.getMovieByName(name);
+
+    }
+
+    public List<Movie> filter(String genre,String language,String id){
+
+        Genre gen=null;
+        Language lan=null;
+
+        if(genre!=null){
+        gen= Genre.valueOf(genre.toUpperCase());
+        }
+
+        if(language!=null){
+        lan= Language.valueOf(genre.toUpperCase());
+        }
+
+        return movieQueryDao.filter(gen,lan,id);
 
     }
 
